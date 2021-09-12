@@ -2,7 +2,7 @@
 SDICL (Simple Directmedia Integration for OpenCL, pronounced "Scycycle", yeah, yeah I know) is a minimalist wrapper for both OpenCL and SDL2 with the sole intention of merging functionality and best-case performance of both systems without limiting capability.
 Perhaps the most notable feature of SDICL is its ability to run OpenCL-based shader kernels on native SDL2 Textures, allowing per-pixel functions to be run with the full power of any CPU/GPU-based OpenCL-supported device.
 
-# Quick Start
+## Quick Start
 The following code is a full C++ example of the most basic workflow:
 ```c++
 // SDL2 setup
@@ -33,7 +33,8 @@ while (running) {
   }
   
   // Shading
-  //stexture->blank(); // Reset the data to all black with alpha of 0 (Does NOT use device acceleration, a better approach is to implement in your own kernel shaders)
+  // Reset the data to all black with alpha of 0 (Does NOT use device acceleration, a better approach is to implement in your own kernel shaders)
+  //stexture->blank();
   stexture->shade(); // Apply the active shader to internal data
   stexture->update(); // Apply final transition from data to renderable SDL_Texture
   
@@ -46,8 +47,8 @@ while (running) {
 
 delete stexture; // Final cleanup and deallocation
 ```
-###cl/shaderFile.ocl:
-```
+### cl/shaderFile.ocl:
+``` opencl
 kernel void shaderFunction(global unsigned char* array, int width, int height) {
     // This is a SIMPLE example of how an OpenCL shader can act on SDL2 pixel data
     int id = get_global_id(0) * 4; // BGRA byteorder
