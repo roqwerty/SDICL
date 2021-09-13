@@ -64,6 +64,6 @@ kernel void shaderFunction(global unsigned char* array, int width, int height) {
 ```
 Remember to build with `-lSDL2main`, `-lSDL2`, and `C:/Windows/System32/OpenCL.dll`, as well as changing the `#include` lines at the top of `SDICL.h` to point to your SDL2 and OpenCL headers.
 
-# Kernel Function Arguments
+## Kernel Function Arguments
 By default, SDICL calls kernel functions with the following 3 arguments, in order: `shaderFunction(global unsigned char* pixelArray, int width, int height)`, where `pixelArray` is a 1D array of all pixel bytes **IN BGRA ORDER** and width and height are the width and hight of the image in pixels.
 Other arguments can be added (and default arguments overwritten) by calling `SDL_ShaderTexture::shaderKernel->setArg(int index, value)` with the desired parameter index (0, 1, and 2 used by default) and data whenever said data changes.
