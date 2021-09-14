@@ -67,3 +67,6 @@ Remember to build with `-lSDL2main`, `-lSDL2`, and `C:/Windows/System32/OpenCL.d
 ## Kernel Function Arguments
 By default, SDICL calls kernel functions with the following 3 arguments, in order: `shaderFunction(global unsigned char* pixelArray, int width, int height)`, where `pixelArray` is a 1D array of all pixel bytes **IN BGRA ORDER** and width and height are the width and hight of the image in pixels.
 Other arguments can be added (and default arguments overwritten) by calling `SDL_ShaderTexture::shaderKernel->setArg(int index, value)` with the desired parameter index (0, 1, and 2 used by default) and data whenever said data changes.
+
+## Warnings
+SDICL is currently in the middle of a (small) refactor to make its interface more closely match that of SDL2 and its native Textures. As this *is* technically an API change, it will break existing code. However, the changed feature list is small and should be completely documented here once complete.
